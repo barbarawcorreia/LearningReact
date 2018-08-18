@@ -19,6 +19,7 @@ class App extends Component { //Instance of App
     {
         super(props); // Where this props came from ? react ?
 
+<<<<<<< HEAD
         this.state = { videos:[], selectedVideo: null }; // Initial State of Array of Videos
 
         this.videoSearch('surfboards');
@@ -27,6 +28,16 @@ class App extends Component { //Instance of App
     videoSearch(term) {
         YTSearch({key: API_KEY,term: term}, (videos) => {
             this.setState({ videos: videos, selectedVideo: videos[0]}); // State after search videos
+=======
+        this.state = { videos:[],
+        selectedVideo: null
+        }; // Initial State of Array of Videos
+
+        YTSearch({key: API_KEY,term: 'surfboards'}, (videos) => {
+            this.setState({ videos: videos,
+            selectedVideo: videos[0]
+            }); // State after search videos
+>>>>>>> 10ab1a96276bff5993955ee53f20e460927aba71
         });
     }
     render() {
@@ -35,9 +46,17 @@ class App extends Component { //Instance of App
         },300 )
         return (
          <div>
+<<<<<<< HEAD
             <SearchBar onSearchTermChange={videoSearch}/>
             <VideoDetail video={this.state.selectedVideo} />
             <VideoList  onVideoSelect={selectedVideo => this.setState({selectedVideo})} videos={this.state.videos} />
+=======
+            <SearchBar />
+            <VideoDetail video={this.state.selectedVideo} />
+            <VideoList
+            onVideoSelect={ selectedVideo => this.setState({selectedVideo}) }
+            videos={this.state.videos} />
+>>>>>>> 10ab1a96276bff5993955ee53f20e460927aba71
         </div>
         );
     }
